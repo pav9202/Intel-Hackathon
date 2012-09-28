@@ -1,0 +1,113 @@
+/*Style Sheet for movable boxes*/
+
+#columns .column{
+
+	margin: 0 5px 0 5px;
+	
+	/*min-width: 1000px; */
+	
+	min-height: 200px; /* set a min-height to ensure a target dropzone */
+}
+
+/*Left column*/
+#columns .menu{
+	width: 25%;
+	/*width: 500px;*/
+	float: left;
+}
+
+/*Middle column*/
+#columns .blocks{
+	width: 45%;
+	/*width: 750px;*/
+	float: left;
+}
+
+/*Right column*/
+#columns .sidebar{
+	width: 20%;
+	/*width: 350px; /*180*/
+	float: left;
+}
+
+.block .draghandle{
+	cursor: move;
+}
+
+/* all columns */
+#columns .menu div, #columns .blocks div, #columns .sidebar div{
+	
+	background-color: white;
+	
+	border: 1px solid #ccc;
+	
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	
+	margin-bottom: 20px;
+
+}
+
+#columns .menu div h1, #columns .blocks div h1, #columns .sidebar div h1{
+	
+	font-size: 12px;
+	
+	padding: 7px;
+	
+	background-color: #e0e0e0;
+}
+
+#columns .menu div p, #columns .blocks div p, #columns .sidebar div p{
+	font-size: 15px;
+	padding: 7px;
+	
+}
+
+#columns .menu, #columns .blocks, #columns .sidebar{
+	
+	/*border: 2px solid #F3F3F3;*/ /*Took out on August 14, 2012 bc of the white border outside of each widget*/
+	
+	padding: 3px;
+	min-width: 350px; /*controls the shrinking size of each column according to their percentages*/
+}
+
+#columns .target {
+	
+	padding: 3px;
+	
+	border: 2px dashed #ccc;
+	
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+
+/* column specific styles */
+#columns .menu div h1{
+
+	background-color: #ccc;
+}
+
+/*right most column*/
+#columns .sidebar div h1{
+
+	background-color: #e6e6e6;
+}
+
+
+/*
+***My own CSS*** 
+
+June 11, 2012
+	Enables scrolling within each box
+
+July 19, 2012 (modified)
+	Added .block
+	.block seems to be the "parent" class for each div that contains a box
+*/
+.block .scrollWin{
+	max-height: 500px;
+	overflow: auto;
+}
+
+
