@@ -20,7 +20,7 @@ body {
 }
 
 #headnote {
-	padding: 50 px 0 px 50px 0 px; 
+	/*padding: 50 px 0 px 50px 0 px; */
 	position: fixed; 
 	float: left; 
 	height: 180px;
@@ -47,5 +47,4 @@ body {
 	float: right; 
 	width: 19%; 
 	margin-top: 150px; 
-	border: 2px solid #000000;
 }
