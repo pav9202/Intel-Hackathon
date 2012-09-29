@@ -31,6 +31,8 @@
 		<script src="js/plugins.js"></script>
 		<script src="js/main.js"></script>
 		<script src="js/plot1.js"></script>
+		<script src="js/activityperiods.js"></script>
+
 		<!-- Add your site or application content here -->
 		<p>
 			Hello world! This is HTML5 Boilerplate.
@@ -39,7 +41,20 @@
 		<div id="chartdiv" style="height:400px;width:800px; ">
 			<script type="text/javascript">
 				//alert("Hello");
-				WeightLoss();
+				var arr = [[11, 123, 1236, "Acura"], [45, 92, 1067, "Alfa Romeo"], [24, 104, 1176, "AM General"], [50, 23, 610, "Aston Martin Lagonda"], [18, 17, 539, "Audi"], [7, 89, 864, "BMW"], [2, 13, 1026, "Bugatti"]];
+
+				var plot2 = $.jqplot('chart2', [arr], {
+					title : 'Transparent Bubbles',
+					seriesDefaults : {
+						renderer : $.jqplot.BubbleRenderer,
+						rendererOptions : {
+							bubbleAlpha : 0.6,
+							highlightAlpha : 0.8
+						},
+						shadow : true,
+						shadowAlpha : 0.05
+					}
+				});
 			</script>
 		</div>
 
