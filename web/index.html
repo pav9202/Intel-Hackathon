@@ -15,6 +15,12 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script> 
+        <script src="js/plot1.js"></script>
+       	<script src="js/JQPlot_dist/jquery.jqplot.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -35,10 +41,20 @@
        
         	<div id = "container">
         		<p>Hello world! This is HTML5 Boilerplate.</p>
-        			<weightLoss>
-						<iframe src="http://www.w3schools.com">
+        			<div id="weightLoss" style="height:400px;width:800px;">
+        					<script type="text/javascript">
+        						WeightLoss(); 
+        					</script>
+        			</div> 
+        			<!--<weightLoss id="weight">
+						<iframe> 
+							<script type="text/javascript">
+							WeightLoss();
+								
+							</script>
 						</iframe>
 					</weightLoss>
+<<<<<<< HEAD
 
 					
 					<currency>
@@ -52,6 +68,15 @@
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script> 
        	
+=======
+					-->
+		
+       <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script> 
+        <script src="js/plot1.js"></script>
+       	<script src="js/JQPlot_dist/jquery.jqplot.js"></script> -->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <!--

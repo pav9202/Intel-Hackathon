@@ -62,7 +62,7 @@ var WeightLoss = function() {
 	 req.send();
 	 */
 	alert("HELLOOOOOOOOOOOO");
-	$.jqplot('chartdiv', [[3, 7, 9, 1, 4, 6, 8, 2, 5]], {
+	$.jqplot('weightLoss', [[3, 7, 9, 1, 4, 6, 8, 2, 5]], {
 		// Give the plot a title.
 		title : 'Weightloss',
 		axesDefaults : {
