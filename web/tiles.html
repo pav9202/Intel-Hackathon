@@ -33,37 +33,44 @@
 <body>
 	<div id="tilesWrapper">
 		<div id = "tilesContainer">
-			<div class="rightClass tileWithPlot" data-plottype="2">
+			<div class="leftClass tileWithPlot" data-plottype="1">
 				<div class="border">
-				<div id="stepToday">
-					<script type="text/javascript">
-						stepsToday();
-					</script>
-				</div>	
-				<div class="buttons">
-					<button type="button" class="enlarge_button">
-						max
-					</button>
-					<button type="button" class="diminish_button">
-						min
-					</button>
-				</div>
+					<div id="stepWeek">
+						<script type="text/javascript">
+							stepsThisWeek();
+						</script>
+					</div>
+					<div class="buttons">
+						<button type="button" class="enlarge_button buttonsForm">
+							max
+						</button>
+						<button type="button" class="diminish_button buttonsForm">
+							min
+						</button>
+					</div>
 				</div>
 			</div>
-
-			<div class="leftClass tileWithPlot" data-plottype="1">
-				<div id="stepWeek">
-					<script type="text/javascript">
-						stepsThisWeek();
-					</script>
-				</div>
-				<div class="buttons">
-					<button type="button" class="enlarge_button">
-						max
-					</button>
-					<button type="button" class="diminish_button">
-						min
-					</button>
+			<!--			
+			<div class="leftClass tile" id="currency_show">
+				<p id="currency_text" style="display:none;"></p>
+				<div id="currency_coin" style="display:none;"><img width="60%" src="img/coins-icon.png"></div>				
+			</div>
+			-->
+			<div class="rightClass tileWithPlot" data-plottype="2">
+				<div class="border">
+					<div id="stepToday">
+						<script type="text/javascript">
+							stepsToday();
+						</script>
+					</div>	
+					<div class="buttons">
+						<button type="button" class="enlarge_button buttonsForm">
+							max
+						</button>
+						<button type="button" class="diminish_button buttonsForm">
+							min
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>

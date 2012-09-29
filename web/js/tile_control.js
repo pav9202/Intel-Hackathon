@@ -104,4 +104,21 @@ $(document).ready(function() {
 	});
 	
 	
+	// currency
+	var coins = Math.floor(Math.random()*1000)+1;
+	console.log(coins);
+	
+	$('#currency_text').append("You have <span style=\"font-size: 40px\">"+coins+"</span> coins now.").show('slow',function(){
+		// animation complete
+		var offset_h = $('#currency_text').outerHeight();
+		for (var i=0; i<coins/10; i++) {
+			setTimeout(function(){
+				var top_i = Math.floor(Math.random()*50)+ offset_h*10;
+				var left_i = Math.floor(Math.random()*200)+1;
+				$('#currency_coin img').clone().appendTo($('#currency_show')).offset({top:top_i, left:left_i});
+			},i*50);
+			
+		}
+	});
+	
 });

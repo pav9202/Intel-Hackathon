@@ -12,6 +12,10 @@ body {
 	margin-top: 45px; 
 	margin-left: 25px; 
 	margin-right: 25px; 
+	background-image: url(../img/banner.jpg);
+	background-position: 0 0; 
+	background-repeat: no-repeat;
+	background-attachment: fixed; 
 	/*background-color: blue; */ 
 }
 
@@ -19,6 +23,7 @@ body {
 	padding: 60 px 0 px 60px 0 px; 
 	position: fixed; 
 	float: left; 
+
 	/*border-style: solid; 
 	border-color: #000000; */
 }
