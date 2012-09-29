@@ -149,8 +149,8 @@ var currencyOverTime = function() {
 		
 	};
 	
-	$.jqplot('chart2', [steps], options);
-	$("#chart2").bind('resize', function(event, ui) {
+	$.jqplot('currencyTracker', [steps], options);
+	$("#currencyTracker").bind('resize', function(event, ui) {
 		plot1.replot({
 			resetAxes : true
 		});

@@ -67,6 +67,7 @@ $(document).ready(function() {
 						$('#stepToday').empty();
 						stepsToday();
 					} else if	(current_tile.data('plottype') == '3') {
+						$('#currenyTracker').empty();
 						currencyOverTime();
 					} else if 	(current_tile.data('plottype') == '4') {
 						weightlossOverTime();
@@ -90,6 +91,7 @@ $(document).ready(function() {
 						$('#stepToday').empty();
 						stepsToday();
 					} else if	(current_tile.data('plottype') == '3') {
+						$('#currencyTracker').empty();
 						currencyOverTime();
 					} else if 	(current_tile.data('plottype') == '4') {
 						weightlossOverTime();
