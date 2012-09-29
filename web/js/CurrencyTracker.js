@@ -141,7 +141,11 @@ var currencyOverTime = function() {
 			}
 
 		}],
-		 
+		cursor:{ 
+        	show: true,
+        	zoom:true, 
+        	showTooltip:false
+      	} 
 		
 	};
 	
