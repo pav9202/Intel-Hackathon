@@ -35,7 +35,7 @@ var stepsToday = function() {
 	var ticks = timestamps;
 
 
-	$.jqplot('chart2', [steps], {
+	$.jqplot('stepToday', [steps], {
 		title: 'Today\'s Steps by the Hour',
 		seriesDefaults : {
 			renderer : $.jqplot.BarRenderer,
@@ -60,11 +60,11 @@ var stepsToday = function() {
 		}
 	});
 
-	$('#chart2').bind('jqplotDataHighlight', function(ev, seriesIndex, pointIndex, data) {
+	$('#stepToday').bind('jqplotDataHighlight', function(ev, seriesIndex, pointIndex, data) {
 		//$('#info2').html('series: ' + seriesIndex + ', point: ' + pointIndex + ', data: ' + data);
 	});
 
-	$('#chart2').bind('jqplotDataUnhighlight', function(ev) {
+	$('#stepToday').bind('jqplotDataUnhighlight', function(ev) {
 		$('#info2').html('');
 	});
 }; 
