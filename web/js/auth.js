@@ -53,7 +53,7 @@
      } else {
 		
        // user has not auth'd your app, or is not logged into Facebook
-		top.location.href = "login.html";
+		//top.location.href = "login.html";
      }
    });
 
