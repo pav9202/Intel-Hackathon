@@ -1,4 +1,4 @@
-var WeightLoss = function() {
+var stepsThisWeek = function() {
 	/*	function createRequest() {
 	 var result = null;
 	 if (window.XMLHttpRequest) {
@@ -61,10 +61,43 @@ var WeightLoss = function() {
 	 req.open("GET", url, true);
 	 req.send();
 	 */
+	var step = '1,2,3,2,5,6,15,8,8';
+	var timestamp = "2012-09-21 14:04:59:612,2012-09-22 14:04:59:612,2012-09-23 14:04:59:612,2012-09-24 14:04:59:612,2012-09-25 14:04:59:612,2012-09-26 14:04:59:612,2012-09-28 14:04:59:612,2012-09-28 14:04:59:612,2012-09-29 14:04:59:612";
+	var s1 = step.split(',');
+	var steps = [];
+	var t1 = timestamp.split(',');
+	var timestamps = [];
+	var lastone = "";
+	var maxWeight = 0;
+	var d = new Date();
+	for(i = 0;i<t1.length;i++){
+		var t2 = t1[i].split(" ");
+		var t3 = t2[0].split("-");
+		
+		if(t3[2]!= lastone && parseInt(t3[2],10)>parseInt(d.toDateString().split(" ")[2],10)-7){
+		//alert(t3[2]);
+			if(parseInt(lastone,10) != parseInt(t3[2],10)-1){
+				for(z=parseInt(lastone,10)+1;z<parseInt(t3[2],10);z++){
+					steps.push(0);
+					timestamps.push('');
+				}
+			}
+			lastone = t3[2];
+			steps.push(s1[i]);
+			if(parseInt(s1[i],10)>maxWeight){
+				maxWeight = parseInt(s1[i],10);
+			}
+			timestamps.push(t3[2]);
+		}
+	}
+
+	
+	
 	alert("HELLOOOOOOOOOOOO");
-	$.jqplot('weightLoss', [[3, 7, 9, 1, 4, 6, 8, 2, 5]], {
+	
+	$.jqplot('chart2', [steps], {
 		// Give the plot a title.
-		title : 'Weightloss',
+		title : 'Steps Per Day This Past Week',
 		axesDefaults : {
 			labelRenderer : $.jqplot.CanvasAxisLabelRenderer
 		},
@@ -73,21 +106,43 @@ var WeightLoss = function() {
 		// Up to 9 y axes are supported.
 		axes : {
 			// options for each axis are specified in seperate option objects.
+			
 			xaxis : {
-				label : "X Axis",
-				pad : 1
-
+				show: false,
+				tickOptions: {
+					showGridline: false,
+					showMark: false,
+					showLabel: false
+				}
 			},
 			yaxis : {
-				label : "Y Axis"
+				tickOptions: {
+					angle:270,
+					formatString: '%d'
+				},
+				min: 0,
+				max: maxWeight+2
 			}
 		},
 		series : [{
+			pointLabels: {
+				show: true
+			},
+			trendline: {
+				show: true,
+//				renderer: $.jqplot.LineRenderer(),
+				color: '#7FFF00',
+				lable: '',
+				type: 'exp',
+				lineWidth: 1.5
+			},
 			markerOptions : {
 				style : "circle",
 				size : 20
 			}
+
 		}]
+		
 	});
 
 };
