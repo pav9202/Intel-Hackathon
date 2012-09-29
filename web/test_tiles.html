@@ -1,9 +1,5 @@
 <html>
 <head>
-	
-</head>
-<body>
-	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
@@ -12,9 +8,12 @@
     <script src="js/main.js"></script>
 	<script src="js/tile_control.js">
 	</script>
+</head>
+<body>
 
 <div id="header" style="width:99%; border:1px solid #000000">
 		<p>This is the header</p>
+		<div class="fb-login-button" data-show-faces="true" data-width="200" data-max-rows="1"></div>
 </div>
 
 <div id="container" class="ui-widget-content" style="width:99%">
@@ -40,6 +39,19 @@
 		<a class="enlarge_button" href="#">Click me to enlarge</a>
 	</div>
 </div>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "https://connect.facebook.net/en_GB/all.js#xfbml=1&appId=231907820270199";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
 </body>
 
 </html>
