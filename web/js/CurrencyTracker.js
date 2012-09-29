@@ -114,6 +114,7 @@ var currencyOverTime = function() {
 			},
 			yaxis : {
 				tickOptions: {
+					showGridline: false,
 					angle:270,
 					formatString: '%d'
 				},
@@ -122,13 +123,14 @@ var currencyOverTime = function() {
 			}
 		},
 		series : [{
+			color:'#FF7F24',
 			pointLabels: {
 				show: true
 			},
 			trendline: {
 				show: true,
 //				renderer: $.jqplot.LineRenderer(),
-				color: '#FF7F24',
+				color: '#BF3EFF',
 				lable: '',
 				type: 'exp',
 				lineWidth: 1.5
