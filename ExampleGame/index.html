@@ -2,39 +2,178 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+	<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+		<script scr="js/game.js"></script>
+	</head>
+	<body>
+		<!--[if lt IE 7]>
+		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+		<![endif]-->
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+		<!-- Add your site or application content here -->
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script>
+			window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')
+		</script>
+		<script src="js/plugins.js"></script>
+		<script type="text/javascript">
+			// Let's play this game!
+			var gameState = 1;
+	// Create the canvas
+	var canvas = document.createElement("canvas");
+	var ctx = canvas.getContext("2d");
+	canvas.width = 512;
+	canvas.height = 480;
+	document.body.appendChild(canvas);
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
-    </body>
+	// Background image
+	var bgReady = false;
+	var bgImage = new Image();
+	bgImage.onload = function() {
+		bgReady = true;
+	};
+	bgImage.src = "images/background.png";
+
+	var bgImage2 = new Image();
+	bgImage2.onload = function() {
+		bgReady2 = true;
+	};
+	bgImage2.src = "img/shelfy.jpg";
+
+	// Hero image
+	var heroReady = false;
+	var heroImage = new Image();
+	heroImage.onload = function() {
+		heroReady = true;
+	};
+	heroImage.src = "images/hero.png";
+
+	// Monster image
+	var monsterReady = false;
+	var monsterImage = new Image();
+	monsterImage.onload = function() {
+		monsterReady = true;
+	};
+	monsterImage.src = "images/monster.png";
+
+	// Game objects
+	var hero = {
+		speed : 256 // movement in pixels per second
+	};
+	var monster = {};
+	var monstersCaught = 0;
+
+	// Handle keyboard controls
+	var keysDown = {};
+
+	addEventListener("keydown", function(e) {
+		keysDown[e.keyCode] = true;
+	}, false);
+
+	addEventListener("keyup", function(e) {
+		delete keysDown[e.keyCode];
+	}, false);
+
+	// Reset the game when the player catches a monster
+	var reset = function() {
+		hero.x = canvas.width / 2;
+		hero.y = canvas.height / 2;
+
+		// Throw the monster somewhere on the screen randomly
+		monster.x = 32 + (Math.random() * (canvas.width - 64));
+		monster.y = 32 + (Math.random() * (canvas.height - 64));
+	};
+
+	// Update game objects
+	var update = function(modifier) {
+		if (38 in keysDown) {// Player holding up
+			hero.y -= hero.speed * modifier;
+		}
+		if (40 in keysDown) {// Player holding down
+			hero.y += hero.speed * modifier;
+		}
+		if (37 in keysDown) {// Player holding left
+			hero.x -= hero.speed * modifier;
+		}
+		if (39 in keysDown) {// Player holding right
+			hero.x += hero.speed * modifier;
+		}
+		if (83 in keysDown) {
+			gameState = 2;
+		}
+		if (71 in keysDown) {
+			gameState = 1;
+		}
+
+		// Are they touching?
+		if (hero.x <= (monster.x + 32) && monster.x <= (hero.x + 32) && hero.y <= (monster.y + 32) && monster.y <= (hero.y + 32)) {++monstersCaught;
+			reset();
+		}
+	};
+
+	// Draw everything
+	var render = function() {
+		
+			if (bgReady) {
+				ctx.drawImage(bgImage, 0, 0);
+			}
+
+			if (heroReady) {
+				ctx.drawImage(heroImage, hero.x, hero.y);
+			}
+
+			if (monsterReady) {
+				ctx.drawImage(monsterImage, monster.x, monster.y);
+			}
+
+			// Score
+			ctx.fillStyle = "rgb(250, 250, 250)";
+			ctx.font = "24px Helvetica";
+			ctx.textAlign = "left";
+			ctx.textBaseline = "top";
+			ctx.fillText("Goblins caught: " + monstersCaught, 32, 32);
+			};
+
+	// The main game loop
+	var main = function() {
+		var now = Date.now();
+					var then = Date.now();
+
+		var delta = now - then;
+
+		update(delta / 1000);
+		render();
+
+		then = now;
+	};
+
+			reset();
+			setInterval(main, 1);
+			// Execute as fast as possible
+		</script>
+
+		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+		<script>
+			var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']]; ( function(d, t) {
+					var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+					g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+					s.parentNode.insertBefore(g, s)
+				}(document, 'script'));
+		</script>
+	</body>
 </html>
