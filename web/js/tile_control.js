@@ -40,8 +40,9 @@ $(document).ready(function() {
 				});
 			}
 		});
-	}).resizable({
-				containment: "#tilesContainer"
+		$(this).resizable({
+			containment: "#tilesContainer"
+		});
 	});
 	
 	$( ".tileWithPlot" ).each(function(){
@@ -59,13 +60,15 @@ $(document).ready(function() {
 				    width: enlarged_width ,height: enlarged_height
 				}, 1000, function() {
 			 		// Animation complete.
-					if (current_tile.data('plotType') == '1') {
+					if (current_tile.data('plottype') == '1') {
+						$('#stepWeek').empty();
 						stepsThisWeek();
-					} else if	(current_tile.data('plotType') == '2') {
+					} else if	(current_tile.data('plottype') == '2') {
+						$('#stepToday').empty();
 						stepsToday();
-					} else if	(current_tile.data('plotType') == '3') {
+					} else if	(current_tile.data('plottype') == '3') {
 						currencyOverTime();
-					} else if 	(current_tile.data('plotType') == '4') {
+					} else if 	(current_tile.data('plottype') == '4') {
 						weightlossOverTime();
 					}
 					current_tile.find('.tile-enlarge').show();
@@ -80,21 +83,24 @@ $(document).ready(function() {
 					width: current_tile.data('original-width') , height: current_tile.data('original-height')
 				}, 1000, function() {
 					// Animation complete
-					f (current_tile.data('plotType') == '1') {
+					if (current_tile.data('plottype') == '1') {
+						$('#stepWeek').empty();
 						stepsThisWeek();
-					} else if	(current_tile.data('plotType') == '2') {
+					} else if	(current_tile.data('plottype') == '2') {
+						$('#stepToday').empty();
 						stepsToday();
-					} else if	(current_tile.data('plotType') == '3') {
+					} else if	(current_tile.data('plottype') == '3') {
 						currencyOverTime();
-					} else if 	(current_tile.data('plotType') == '4') {
+					} else if 	(current_tile.data('plottype') == '4') {
 						weightlossOverTime();
 					}
 					current_tile.find('.tile-enlarge').hide();
 				});
 			}
 		});
-	}).resizable({
-				containment: "#tilesContainer"
+		$(this).resizable({
+			containment: "#tilesContainer"
+		});
 	});
 	
 	

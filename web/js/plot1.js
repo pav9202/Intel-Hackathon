@@ -92,9 +92,6 @@ var stepsThisWeek = function() {
 	}
 
 	
-	
-	alert("HELLOOOOOOOOOOOO");
-	
 	var options = {
 		// Give the plot a title.
 		title : 'Steps Per Day This Past Week',
@@ -145,16 +142,13 @@ var stepsThisWeek = function() {
 		
 	};
 	
-	var plot1 = $.jqplot('stepWeek', [steps], options);
-	
-	$("#stepWeek").resizable({
-		delay : 20
-	});
-	
-	$("#stepWeek").bind('resize', function(event, ui){
+	$.jqplot('stepWeek', [steps], options);
+	$("#stepWeek").bind('resize', function(event, ui) {
 		plot1.replot({
 			resetAxes : true
 		});
 	});
+	
+
 
 };

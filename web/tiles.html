@@ -1,61 +1,77 @@
 <!DOCTYPE html>
-	<head>
-		<link rel="stylesheet" href="css/tiles_style.css">
-		
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script> 
-        <script src="js/plot1.js"></script>
-       	<script src="js/JQPlot_dist/jquery.jqplot.js"></script>	
-       	<script src="js/tile_control.js"></script>
-       	<script src="js/vendor/jquery-ui-1.8.23.min.js"></script>
-       	<script src="js/overtheweek.js"></script>
-		<script src="js/bargraphexample.js"></script>
-		<script src="js/JQPlot_dist/jquery.jqplot.js"></script>
-		<script src="js/JQPlot_dist/plugins/jqplot.canvasAxisLabelRenderer.js"></script>
-		<script src="js/JQPlot_dist/plugins/jqplot.canvasTextRenderer.js"></script>
-		<script src="js/JQPlot_dist/plugins/jqplot.trendline.js"></script>
-		<script src="js/JQPlot_dist/plugins/jqplot.pointLabels.min.js"></script>
-		<script src="js/JQPlot_dist/plugins/jqplot.categoryAxisRenderer.min.js"></script>			
-		<script src="js/JQPlot_dist/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
-		<script src="js/JQPlot_dist/plugins/jqplot.categoryAxisRenderer.min.js"></script>
-		
+<head>
+	<link rel="stylesheet" href="css/tiles_style.css">
 
-<script src="js/JQPlot_dist/plugins/jqplot.logAxisRenderer.min.js"></script>
-<script src="js/JQPlot_dist/plugins/jqplot.trendline.min.js"></script>
-<link rel="stylesheet" hrf="js/JQPlot_dist/jquery.jqplot.min.css"/>
-<!--<link rel="stylesheet" type="text/css" hrf="jquery-ui/css/smoothness/jquery-ui.min.css" />-->
-       		
-		<title>GetUP</title>
-	</head>
-	<body>
-        <div id="tilesWrapper">       
-        	<div id = "tilesContainer">        		
-        		<p>Hello world! This is HTML5 Boilerplate..... Tiles!</p>
-        			<div class="rightClass tile">
-        				<h3 class="tilesHeader">Image</h3>
-        				<button type="button" class="enlarge_button">maximize</button>
-        				<button type="button" class="diminish_button">diminish</button>
-        				<img src="img/ion__density.0090-1.png" class="displayImg"/>
-        			</div>	
-        			
-        			<div class="leftClass tileWithPlot" data-plotType="1">
-						<div id="stepWeek">
-        					<script type="text/javascript">
-        						stepsThisWeek(); 
-        					</script>
-        				</div>	
-        				<button type="button" class="enlarge_button">maximize</button>
-        				<button type="button" class="diminish_button">diminish</button>        					
-        			</div>
-        			
-        			<div class="leftClass tileWithPlot">
-        				<div id="stepToday">
-        					
-        				</div>
-        				
-        			</div>
-        		</div>	
-        	</div>		 	
-	</body>
+	<script>
+		window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')
+	</script>
+	<script src="js/plugins.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/plot1.js"></script>
+	<script src="js/JQPlot_dist/jquery.jqplot.js"></script>
+	<script src="js/tile_control.js"></script>
+	<script src="js/vendor/jquery-ui-1.8.23.min.js"></script>
+	<script src="js/overtheweek.js"></script>
+	<script src="js/bargraphexample.js"></script>
+	<script src="js/JQPlot_dist/jquery.jqplot.js"></script>
+	<script src="js/JQPlot_dist/plugins/jqplot.canvasAxisLabelRenderer.js"></script>
+	<script src="js/JQPlot_dist/plugins/jqplot.canvasTextRenderer.js"></script>
+	<script src="js/JQPlot_dist/plugins/jqplot.trendline.js"></script>
+	<script src="js/JQPlot_dist/plugins/jqplot.pointLabels.min.js"></script>
+	<script src="js/JQPlot_dist/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+	<script src="js/JQPlot_dist/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
+	<script src="js/JQPlot_dist/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+
+	<script src="js/JQPlot_dist/plugins/jqplot.logAxisRenderer.min.js"></script>
+	<script src="js/JQPlot_dist/plugins/jqplot.trendline.min.js"></script>
+	<link rel="stylesheet" hrf="js/JQPlot_dist/jquery.jqplot.min.css"/>
+	<script src="js/JQPlot_dist/plugins/jqplot.barRenderer.js"></script>
+	<!--<link rel="stylesheet" type="text/css" hrf="jquery-ui/css/smoothness/jquery-ui.min.css" />-->
+
+	<title>GetUP</title>
+</head>
+<body>
+	<div id="tilesWrapper">
+		<div id = "tilesContainer">
+			<p>
+				Hello world! This is HTML5 Boilerplate..... Tiles!
+			</p>
+			<div class="rightClass tileWithPlot" data-plottype="2">
+				<div id="stepToday">
+					<script type="text/javascript">
+						stepsToday();
+					</script>
+				</div>	
+				<button type="button" class="enlarge_button">
+					maximize
+				</button>
+				<button type="button" class="diminish_button">
+					diminish
+				</button>
+			</div>
+
+			<div class="leftClass tileWithPlot" data-plottype="1">
+				<div id="stepWeek">
+					<script type="text/javascript">
+						stepsThisWeek();
+					</script>
+				</div>
+				<button type="button" class="enlarge_button">
+					maximize
+				</button>
+				<button type="button" class="diminish_button">
+					diminish
+				</button>
+			</div>
+
+			<!--<div class="leftClass tileWithPlot">
+			<div id="stepToday">
+
+			</div>
+
+			</div>
+			-->
+		</div>
+	</div>
+</body>
 </html>
