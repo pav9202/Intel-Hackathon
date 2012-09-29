@@ -35,8 +35,10 @@
 		<script src="js/JQPlot_dist/plugins/jqplot.categoryAxisRenderer.min.js"></script>			
 		<script src="js/JQPlot_dist/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
 		<script src="js/JQPlot_dist/plugins/jqplot.categoryAxisRenderer.min.js"></script>
-	
 		<script src="js/JQPlot_dist/plugins/jqplot.barRenderer.js"></script>
+		
+		<script src="js/CurrencyTracker.js"></script>
+		<script src="../src/plugins/jqplot.cursor.min.js"></script>
 	
 	</head>
 	<body>
@@ -62,7 +64,7 @@
 				</p>
 				<div id="chart2" style="height:300px;width:550px;">
 					<script type="text/javascript">
-						stepsToday();
+						currencyOverTime();
 					</script>
 					<div id="info2"></div>
 				</div>
