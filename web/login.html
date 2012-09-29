@@ -8,6 +8,9 @@
     <script src="js/main.js"></script>
 </head>
 <body>
+	<div>
+		<p style="font-size:30px; color: #CCAAFF;">You have to login Facebook in order to use our platform</p>
+	</div>
 	<div id="fb-root"></div>
 	<script>
 	  // Load the SDK Asynchronously
@@ -33,11 +36,10 @@
          if (response.authResponse) {
            // user has auth'd your app and is logged into Facebook
 			var me;
-           FB.api('/me', function(data){
-			 console.log(data);
-			 me=data;
-           })
-		   top.location.href = "index.html?id="+me["id"];
+           FB.api('/me', function(me){
+			 console.log(me);
+			top.location.href = "index.html?id="+me["id"];
+           }) 
          } else {
            // user has not auth'd your app, or is not logged into Facebook
          }
