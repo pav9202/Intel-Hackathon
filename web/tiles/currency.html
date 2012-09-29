@@ -1,0 +1,41 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script src="../js/vendor/jquery-1.8.2.min.js"></script>
+	<script src="../js/vendor/jquery-ui-1.8.23.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/main.js"></script>
+	<script>
+		// var coin_animate = 0;
+		// 		var display_counter;
+		$(function(){
+			
+			// should be ajax the number of coins
+			var coins = Math.floor(Math.random()*1000)+1;
+			console.log(coins);
+			
+			$('#currency_text').append("You have <span style=\"font-size: 40px\">"+coins+"</span> coins now.").show('slow',function(){
+				// animation complete
+				var offset_h = $('#currency_text').position().top+$('#currency_text').outerHeight();
+				for (var i=0; i<coins/10; i++) {
+					setTimeout(function(){
+						var top_i = Math.floor(Math.random()*50)+ offset_h*3;
+						var left_i = Math.floor(Math.random()*200)+1;
+						$('#currency_coin img').clone().appendTo($('#currency_show')).offset({top:top_i, left:left_i});
+					},i*50);
+					
+				}
+			});
+			
+		});
+	
+	</script>
+</head>
+<body>
+	<div class="tile" id="currency_show" style="width: 300px;">
+		<p id="currency_text" style="display:none;"></p>
+		<div id="currency_coin" style="display:none;"><img width="60%" src="../img/coins-icon.png"></div>
+		
+	</div>
+</body>
+</html>

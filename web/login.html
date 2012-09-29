@@ -18,10 +18,6 @@
           cookie     : true, // enable cookies to allow the server to access the session
           xfbml      : true  // parse XFBML
         });
-		FB.Event.subscribe('auth.login', function () {
-				alert("Login");console.log("Login");
-		          window.location = "test_tiles.html";
-		});
       };
       // Load the SDK Asynchronously
       (function(d){
@@ -31,11 +27,17 @@
          js.src = "http://connect.facebook.net/en_US/all.js";
          ref.parentNode.insertBefore(js, ref);
        }(document));
+	  $.ready(function(){
+		FB.getLoginStatus(function(response){
+		        if (response.status) {
+		        	console.log(response.status);
+					if (response.status === 'connected') top.location.href = 'index.html'
+		        }
+		})
+	  });
     </script>
 
-	<div class="fb-login-button" scope="email,user_checkins">
-	        Login with Facebook
-	      </div>
+	<div class="fb-login-button" scope="email,user_checkins">Login with Facebook</div>
 <!--
 	<div class="fb-registration" data-fields="[{'name':'name'}, {'name':'email'},
 	       {'name':'favorite_car','description':'What is your favorite car?',
