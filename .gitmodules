@@ -1,0 +1,3 @@
+[submodule "couchdb-websockets"]
+	path = couchdb-websockets
+	url = git://github.com/burntcookie90/couchdb-websockets.git
