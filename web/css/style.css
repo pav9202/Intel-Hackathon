@@ -20,10 +20,10 @@ body {
 }
 
 #headnote {
-	padding: 60 px 0 px 60px 0 px; 
+	padding: 50 px 0 px 50px 0 px; 
 	position: fixed; 
 	float: left; 
-	height: 200px;
+	height: 180px;
 	width: 800px;  
 	/*border-style: solid; 
 	border-color: #000000; */

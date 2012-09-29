@@ -158,8 +158,8 @@ var weightLossOverTime = function() {
 		
 	};
 	
-	$.jqplot('chart2', [steps], options);
-	$("#chart2").bind('resize', function(event, ui) {
+	$.jqplot('weightTracker', [steps], options);
+	$("#weightTracker").bind('resize', function(event, ui) {
 		plot1.replot({
 			resetAxes : true
 		});

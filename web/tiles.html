@@ -28,6 +28,8 @@
 	<script src="js/JQPlot_dist/plugins/jqplot.barRenderer.js"></script>
 	<script src="js/CurrencyTracker.js"></script>
 	<script src="js/JQPlot_dist/plugins/jqplot.cursor.min.js"></script>
+	<script src="js/currency.js"></script>
+	<script src="js/WeightTracker.js"></script>
 	<!--<link rel="stylesheet" type="text/css" hrf="jquery-ui/css/smoothness/jquery-ui.min.css" />-->
 
 	<title>GetUP</title>
@@ -52,12 +54,14 @@
 					</div>
 				</div>
 			</div>
-			<!--			
-			<div class="leftClass tile" id="currency_show">
-				<p id="currency_text" style="display:none;"></p>
-				<div id="currency_coin" style="display:none;"><img width="60%" src="img/coins-icon.png"></div>				
+						
+			<div class="rightClass" style="width:45%;">
+				<div class="border" id="currency_tile">
+					
+				</div>
+				
 			</div>
-			-->
+			
 			<div class="rightClass tileWithPlot" data-plottype="2">
 				<div class="border">
 					<div id="stepToday">
@@ -91,6 +95,24 @@
 							min
 						</button>
 					</div>					
+				</div>
+			</div>
+			
+			<div class="leftClass tileWithPlot" data-plottype="4">
+				<div class="border">
+					<div id="weightTracker">
+						<script type="text/javascript">
+							weightLossOverTime();
+						</script>
+					</div>
+					<div class="buttons">
+						<button type="button" class="enlarge_button buttonsForm">
+							max
+						</button>
+						<button type="button" class="diminish_button buttonsForm">
+							min
+						</button>
+					</div>						
 				</div>
 			</div>
 			
