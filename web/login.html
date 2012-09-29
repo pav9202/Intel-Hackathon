@@ -31,31 +31,12 @@
 		FB.getLoginStatus(function(response){
 		        if (response.status) {
 		        	console.log(response.status);
-					if (response.status === 'connected') top.location.href = 'index.html'
+					if (response.status === 'connected') top.location.href = 'auth.php'
 		        }
 		})
 	  });
     </script>
 
 	<div class="fb-login-button" scope="email,user_checkins">Login with Facebook</div>
-<!--
-	<div class="fb-registration" data-fields="[{'name':'name'}, {'name':'email'},
-	       {'name':'favorite_car','description':'What is your favorite car?',
-	         'type':'text'}]" data-redirect-uri="test_tiles.html" >
-	</div>
--->
-	
-	
-	<!--
-	<div class="fb-login-button" data-show-faces="true" data-width="200" data-max-rows="1"></div>
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {/*
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "https://connect.facebook.net/en_GB/all.js#xfbml=1&appId=231907820270199";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));*/</script>
-	-->
 </body>
 </html>
