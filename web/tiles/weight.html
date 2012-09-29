@@ -1,0 +1,42 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script src="../js/vendor/jquery-1.8.2.min.js"></script>
+	<script src="../js/vendor/jquery-ui-1.8.23.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/main.js"></script>
+	<script>
+	var weight_submit;
+		// ajax for the weight input
+		$(function(){
+			weight_submit = false;
+			$('#weight_input_submit').click(function(){
+				if (weight_submit == false) {
+					weight_submit = true;
+					/*$.ajax({
+						type: "POST",
+						url: ,
+						dataType: "JSON",
+						data: { id: , weight: $('#weight').text() },
+						success: function(data){
+							
+						}
+						// error: error_handler
+					}).done(function(){
+						weight_submit = false;
+					});*/
+				}
+				
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="tile" id="weightTile" style="width: 400px;">
+		<form id="weight_input">
+			<input id="weight" name="weight" style="font-size: 20px;"></input><span style="font-size: 20px"> lbs.</span>
+			<input type="button" value="submit" id="weight_input_submit"></input>
+		</form>
+	</div>
+</body>
+</html>

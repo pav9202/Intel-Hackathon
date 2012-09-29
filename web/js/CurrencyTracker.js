@@ -1,4 +1,4 @@
-var stepsThisWeek = function() {
+var currencyOverTime = function() {
 	/*	function createRequest() {
 	 var result = null;
 	 if (window.XMLHttpRequest) {
@@ -61,8 +61,8 @@ var stepsThisWeek = function() {
 	 req.open("GET", url, true);
 	 req.send();
 	 */
-	var step = '1,2,3,2,5,6,15,8,8';
-	var timestamp = "2012-09-21 14:04:59:612,2012-09-22 14:04:59:612,2012-09-23 14:04:59:612,2012-09-24 14:04:59:612,2012-09-25 14:04:59:612,2012-09-26 14:04:59:612,2012-09-28 14:04:59:612,2012-09-28 14:04:59:612,2012-09-29 14:04:59:612";
+	var step = '10,20,35,20,50,60,150,80,80,90,120,130,120,150,250,150,580,780,0';
+	var timestamp = "2012-09-21 14:04:59:612,2012-09-22 14:04:59:612,2012-09-23 14:04:59:612,2012-09-24 14:04:59:612,2012-09-25 14:04:59:612,2012-09-26 14:04:59:612,2012-09-27 14:04:59:612,2012-09-28 14:04:59:612,2012-09-29 14:04:59:612,2012-09-30 14:04:59:612,2012-10-01 14:04:59:612,2012-10-02 14:04:59:612,2012-10-03 14:04:59:612,2012-10-04 14:04:59:612,2012-10-05 14:04:59:612,2012-10-06 14:04:59:612,2012-10-07 14:04:59:612,2012-10-08 14:04:59:612";
 	var s1 = step.split(',');
 	var steps = [];
 	var t1 = timestamp.split(',');
@@ -74,7 +74,7 @@ var stepsThisWeek = function() {
 		var t2 = t1[i].split(" ");
 		var t3 = t2[0].split("-");
 		
-		if(t3[2]!= lastone && parseInt(t3[2],10)>parseInt(d.toDateString().split(" ")[2],10)-7){
+		if(t3[2]!= lastone && parseInt(t3[0],10)==parseInt(d.getFullYear(),10)){
 		//alert(t3[2]);
 			if(parseInt(lastone,10) != parseInt(t3[2],10)-1){
 				for(z=parseInt(lastone,10)+1;z<parseInt(t3[2],10);z++){
@@ -94,7 +94,7 @@ var stepsThisWeek = function() {
 	
 	var options = {
 		// Give the plot a title.
-		title : 'Steps Per Day This Past Week',
+		title : 'Currency Activity',
 		axesDefaults : {
 			labelRenderer : $.jqplot.CanvasAxisLabelRenderer
 		},
@@ -114,6 +114,7 @@ var stepsThisWeek = function() {
 			},
 			yaxis : {
 				tickOptions: {
+					showGridline: false,
 					angle:270,
 					formatString: '%d'
 				},
@@ -122,28 +123,34 @@ var stepsThisWeek = function() {
 			}
 		},
 		series : [{
+			color:'#FF7F24',
 			pointLabels: {
 				show: true
 			},
 			trendline: {
 				show: true,
 //				renderer: $.jqplot.LineRenderer(),
-				color: '#7FFF00',
+				color: '#BF3EFF',
 				lable: '',
 				type: 'exp',
 				lineWidth: 1.5
 			},
 			markerOptions : {
-				style : "circle",
+				style : "diamond",
 				size : 20
 			}
 
-		}]
+		}],
+		cursor:{ 
+        	show: true,
+        	zoom:true, 
+        	showTooltip:false
+      	} 
 		
 	};
 	
-	$.jqplot('stepWeek', [steps], options);
-	$("#stepWeek").bind('resize', function(event, ui) {
+	$.jqplot('currencyTracker', [steps], options);
+	$("#currencyTracker").bind('resize', function(event, ui) {
 		plot1.replot({
 			resetAxes : true
 		});
