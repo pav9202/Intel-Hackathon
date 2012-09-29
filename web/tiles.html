@@ -26,6 +26,8 @@
 	<script src="js/JQPlot_dist/plugins/jqplot.trendline.min.js"></script>
 	<link rel="stylesheet" hrf="js/JQPlot_dist/jquery.jqplot.min.css"/>
 	<script src="js/JQPlot_dist/plugins/jqplot.barRenderer.js"></script>
+	<script src="js/CurrencyTracker.js"></script>
+	<script src="js/JQPlot_dist/plugins/jqplot.cursor.min.js"></script>
 	<!--<link rel="stylesheet" type="text/css" hrf="jquery-ui/css/smoothness/jquery-ui.min.css" />-->
 
 	<title>GetUP</title>
@@ -73,6 +75,25 @@
 					</div>
 				</div>
 			</div>
+			
+			<div class="leftClass tileWithPlot" data-plottype="3">
+				<div class="border">
+					<div id="currencyTracker">
+						<script type="text/javascript">
+							currencyOverTime();
+						</script>
+					</div>
+					<div class="buttons">
+						<button type="button" class="enlarge_button buttonsForm">
+							max
+						</button>
+						<button type="button" class="diminish_button buttonsForm">
+							min
+						</button>
+					</div>					
+				</div>
+			</div>
+			
 		</div>
 	</div>
 </body>
