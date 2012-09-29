@@ -1,0 +1,72 @@
+/*Style Sheet*/
+html {
+	overflow-y: scroll;
+}
+
+body {
+	background-color: #F3F3F3;
+	font-family: 'Helvetica Neue',Helvetica,'Lucida Grande',Arial,Verdana,Sans-Serif;
+}
+
+#tilesWrapper {
+	margin-top: 10px;  
+	/*background-color: blue; */ 
+}
+
+#tilesContainer { 
+	background-color: white;  
+	height: 1000px; 
+	width: 100%;
+	margin-left: 10px; 
+	margin-right: 10px; 
+	margin-top: 10px; 
+}
+#games {
+	float: right; 
+	background-color: #000000; 
+	width: 30%; 
+	margin-top: 150px; 
+}
+#weightLoss {
+	float: left;   
+	width: 45%;  
+	height: 300px;
+	border: 1px solid #AAAAAA; 
+	background-color: #e0e0e0;	
+}
+
+.tileContent{
+	width: 100%; 
+}
+
+.displayImg{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	height: 70%; 
+}
+#currency {
+	float: right;
+	width: 45%; 
+	height: 300px; 
+	border: 1px solid #AAAAAA; 
+	background-color: #e0e0e0;	
+}
+
+.tilesHeader {
+	background-color: #FFFFFF;
+	border: 2px solid #CCCCCC;
+	margin-top: 0px;
+	top: -25px; 
+}
+
+#test { 
+	height: 100px; 
+	width: 100px; 
+}
+
+.scrollWin{
+	max-height: 500px;
+	overflow: auto;	
+}

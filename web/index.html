@@ -21,6 +21,7 @@
         <script src="js/main.js"></script> 
         <script src="js/plot1.js"></script>
        	<script src="js/JQPlot_dist/jquery.jqplot.js"></script>
+       	<script src="js/tile_control.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -28,24 +29,36 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
+        
         <div id="wrapper">
         	<div id="headnote">
         		<img src="img/star.png"/> 
         		<hr>
         			
         	</div>	
-        	
+        	<div id="container">
+            	<iframe src="tiles.html" width="100%" height="100%" frameborder="0">
+        		</iframe> 		
+        	</div>
+       
         	<!--<div style="clear:both;"></div>
      
        		<hr/>-->
-       
-        	<div id = "container">
+       <!--
+        	<div id = "container">        		
         		<p>Hello world! This is HTML5 Boilerplate.</p>
-        			<div id="weightLoss" style="height:400px;width:800px;">
+        			<div id="currency" class="tile">
+        				<button type="button" onclick="enlarge_button">maximize</button> 
+        				<img src="img/ion__density.0090-1.png"/>
+        			</div>
+        			        		
+        			<div id="weightLoss">
         					<script type="text/javascript">
         						WeightLoss(); 
         					</script>
         			</div> 
+        -->			
+
         			<!--<weightLoss id="weight">
 						<iframe> 
 							<script type="text/javascript">
@@ -86,9 +99,7 @@
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
-        -->
-       		</div>
-       		
+        -->      		
        		<div id="games">
        			<p>Gamesss!</p>
        			

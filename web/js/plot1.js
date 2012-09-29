@@ -61,6 +61,7 @@ var stepsThisWeek = function() {
 	 req.open("GET", url, true);
 	 req.send();
 	 */
+<<<<<<< HEAD
 	var step = '1,2,3,2,5,6,15,8,8';
 	var timestamp = "2012-09-21 14:04:59:612,2012-09-22 14:04:59:612,2012-09-23 14:04:59:612,2012-09-24 14:04:59:612,2012-09-25 14:04:59:612,2012-09-26 14:04:59:612,2012-09-28 14:04:59:612,2012-09-28 14:04:59:612,2012-09-29 14:04:59:612";
 	var s1 = step.split(',');
@@ -96,6 +97,10 @@ var stepsThisWeek = function() {
 	alert("HELLOOOOOOOOOOOO");
 	
 	$.jqplot('chart2', [steps], {
+=======
+	/*alert("HELLOOOOOOOOOOOO");*/
+	$.jqplot('weightLoss', [[3, 7, 9, 1, 4, 6, 8, 2, 5]], {
+>>>>>>> iframes and tiles
 		// Give the plot a title.
 		title : 'Steps Per Day This Past Week',
 		axesDefaults : {
